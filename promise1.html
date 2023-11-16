@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const value1 = 10;
+      const value2 = 20;
+      const value3 = 30;
+
+      const promise1 = new Promise((resolve, reject) => {
+        if (value1) {
+          resolve(value1);
+        } else {
+          reject(0);
+        }
+      });
+
+      const promise2 = new Promise((resolve, reject) => {
+        if (value2) {
+          resolve(value2);
+        } else {
+          reject(0);
+        }
+      });
+
+      const promise3 = new Promise((resolve, reject) => {
+        if (value3) {
+          resolve(value3);
+        } else {
+          reject(0);
+        }
+      });
+
+      Promise.all([promise1, promise2, promise3])
+        .then((arr) => {
+          const sum = arr.reduce((acc, value) => acc + value, 0);
+          console.log(sum);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    </script>
+  </body>
+</html>
